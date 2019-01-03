@@ -32,6 +32,7 @@ for row in reader:
     #for each of the rows read the values and write them in the list above
     for value in row:
         #fill the empty rowlist with values from each one of the rows
+        #change the value of the pub to 255
         if (value == 1):
             rowlist.append(255)
         else:
@@ -47,32 +48,6 @@ f.close
 matplotlib.pyplot.imshow(environment)
 matplotlib.pyplot.show()
 
-#f = open('drunk.plan.txt', newline='')
-#
-#reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
-
-#create the environment initially as an empty list
-#density_map = []
-#
-##read each row in the reader 
-#for row in reader:
-#    #create an empty list for all the values in each row
-#    rowlist = []
-#    #for each of the rows read the values and write them in the list above
-#    for value in row:
-#        #fill the empty rowlist with values from each one of the rows
-#        rowlist.append(value)
-#    #fill the environment with the rowlists each time    
-#    density_map.append(rowlist)
-#   #we have to close the reader now that we are done 
-#f.close
-#
-#matplotlib.pyplot.imshow(density_map)
-#matplotlib.pyplot.show()
-
-f = open('drunk.plan.txt', newline='')
-
-reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 
 #create the environment initially as an empty list
 density_map = []
@@ -83,7 +58,7 @@ for row in reader:
     rowlist = []
     #for each of the rows read the values and write them in the list above
     for value in row:
-        #fill the empty rowlist with values from each one of the rows
+        #fill the empty rowlist with value 0
         rowlist.append(0)
     #fill the environment with the rowlists each time    
     density_map.append(rowlist)
@@ -131,12 +106,11 @@ for i in range(num_of_drunks):
 matplotlib.pyplot.imshow(density_map)
 matplotlib.pyplot.show()
           
-for i in range(num_of_drunks):
-        matplotlib.pyplot.scatter(drunks[i].x,drunks[i].y)
-        print(drunks[i].x,drunks[i].y)
-        
-print(drunks[0].y,drunks[0].x)
-print(drunks[1].y,drunks[1].x)
-fig = matplotlib.pyplot.figure(figsize=(7, 7))
-ax = fig.add_axes([0, 0, 1, 1])
+#write the density map in a new txt file named 
+f2 = open('Density_map.txt', 'w', newline='') 
+writer = csv.writer(f2, delimiter=' ')
+for row in density_map:		
+	writer.writerow(row)		# List of values.
+f2.close()
+
 
