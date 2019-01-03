@@ -9,15 +9,16 @@ Created on Thu Nov 15 16:28:53 2018
 #import the modules that we will use
 #the csv module will be needed so that we can read 
 #the data for the environment
-#the matplotlib will be needed to 
-##READING THE DATA FOR THE ENVIRONMENT
+
+
 import csv
 import matplotlib
 import Drunks_Framework as drfr
 import matplotlib.animation
 
-"""In this section, we will read the data for the environment
+"""In this section, we will read the data for the environment/town.
 """
+
 f = open('drunk.plan.txt', newline='')
 
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
@@ -48,7 +49,8 @@ f.close
 matplotlib.pyplot.imshow(environment)
 matplotlib.pyplot.show()
 
-
+"""In this section, the density map will be created.
+"""
 #create the environment initially as an empty list
 density_map = []
 
@@ -68,7 +70,7 @@ f.close
 matplotlib.pyplot.imshow(density_map)
 matplotlib.pyplot.show()
 
-"""In this section, we will find the coordinates of the pub and the houses
+"""In this section, we will find the coordinates of the pub.
 """
 #write code that will find the location of the pub
 #we have to go through all the values 
@@ -85,7 +87,9 @@ for j in range(len(environment)):
     break
 print(pub)
 
-"""In this section, we will generate the drunks and make them move
+"""In this section, we will generate the drunks
+   and make them move.
+   
 """
 
 
@@ -94,9 +98,12 @@ drunks= []
 x = pub[1]
 y = pub[0]
 
-#create a list of drunks using the agent framework that we created
+#create a list of drunks using the Drunks_Framework.py
 for i in range(num_of_drunks):
     drunks.append(drfr.Drunk(x, y, (i+1), environment, drunks))
+#move the agents while the condition
+# "drunks[i].is_drunk_home" is False
+#when this becomes true, the next agent starts moving
 for i in range(num_of_drunks):
         while drunks[i].is_drunk_home == False:
             drunks[i].move()
