@@ -39,7 +39,7 @@ class Drunk:
         self.drunks = drunks      
         self.is_drunk_home = False
         
-        self.drunk_density_map = self.createDrunkDensityMap()
+        #self.drunk_density_map = self.createDrunkDensityMap()
 
 
             
@@ -131,25 +131,25 @@ class Drunk:
         print('Drunk: ', self.number, ' Position: ', self.y, self.x, ' Environment value: ', self.environment[self.y][self.x])          
                 
                 
-    def createDrunkDensityMap(self):
-        """in this function the drunks have their own density map.
+    #def createDrunkDensityMap(self):
+    #    """in this function the drunks have their own density map.
         
-        Arguments:
-            self -- agent
+    #    Arguments:
+    #        self -- agent
         
-        Based on the movement of the drunks, a density map is created for each of them.
+    #   Based on the movement of the drunks, a density map is created for each of them.
         
-        Returns:
-            the new density map of the drunk.
+    #    Returns:
+    #        the new density map of the drunk.
         
-        """
-        drunk_density_map = []
-        for j in range(len(self.environment)):
-            drunk_density_map.append([])
-            for i in range(len(self.environment[j])):
-                drunk_density_map[j].append(0.0)
+    #    """
+    #    drunk_density_map = []
+    #    for j in range(len(self.environment)):
+    #        drunk_density_map.append([])
+    #        for i in range(len(self.environment[j])):
+    #            drunk_density_map[j].append(0.0)
         
-        return drunk_density_map
+    #    return drunk_density_map
                 
                 
                 
