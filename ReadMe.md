@@ -9,4 +9,5 @@ In this assignment we are required to create an agent-based model. We create 25 
 * The agents are aware of the environment that they are in.
 * The agents are assigned the coordinates of the pub.
 * In the class **Drunks_Framework.py** the drunks/agents are given their attributes, such as their coordinates and the movements that they are allowed are defined in the functions `moveXaxis`, `moveYaxis` and `move` .
-* Finally, in the **Model_for_drunks.py**, the drunks are generated and move throughout the town starting from the pub until they find their houses. 
+* Finally, in the **Model_for_drunks.py**, the drunks are generated and move throughout the town starting from the pub until they find their houses. The first drunk leaves the pub until he reaches his house, then the next drunk leaves etc.
+* A file called *Density_map.txt* is saved after we run the model, which contains the values of the density map that was created. 
